@@ -1,0 +1,22 @@
+defaults: &defaults
+  host: 127.0.0.1
+  port: SET YOUR PORT HERE
+  # these are the defaults but you can set them here.
+  # manage_port: 8002
+  # admin_port: 8001
+  # app_services_port: 8000
+
+development:
+  <<: *defaults
+  app_name: markmapper_sample_app_development
+
+test:
+  <<: *defaults
+  app_name: markmapper_sample_app_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  app_name: markmapper_sample_app
+  username: <%= ENV['MARKLOGIC_USERNAME'] %>
+  password: <%= ENV['MARKLOGIC_PASSWORD'] %>
